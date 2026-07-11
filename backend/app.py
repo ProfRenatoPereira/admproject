@@ -14,9 +14,12 @@ app = Flask(__name__,
 def init_db():
     with sqlite3.connect('empresa.db') as conn:
         cursor = conn.cursor()
-        with open('../database/schema.sql', 'r') as f:
+        # Modifique esta linha para usar o caminho absoluto correto:
+        sql_path = os.path.join(root_dir, 'database', 'schema.sql')
+        with open(sql_path, 'r') as f:
             cursor.executescript(f.read())
         conn.commit()
+
 
 @app.route('/')
 def index():

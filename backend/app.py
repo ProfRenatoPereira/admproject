@@ -1,9 +1,15 @@
 from flask import Flask, render_template, request, jsonify
 import sqlite3
 
+import os
+
+# O Render roda a partir da raiz do projeto, então ajustamos os caminhos
+base_dir = os.path.abspath(os.path.dirname(__file__))
+root_dir = os.path.dirname(base_dir)
+
 app = Flask(__name__, 
-            template_folder='../frontend', 
-            static_folder='../frontend')
+            template_folder=os.path.join(root_dir, 'frontend'), 
+            static_folder=os.path.join(root_dir, 'frontend'))
 
 def init_db():
     with sqlite3.connect('empresa.db') as conn:

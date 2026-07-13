@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Instalações Imobiliárias - Teradmas{% endblock %}
+
+{% block content %}
+<section class="card" aria-labelledby="tit-terreno">
+    <h2 id="tit-terreno">Precificação de Instalações Imobiliárias</h2>
+    <p>Calcule o impacto financeiro do terreno, edificações e impostos prediais no custo minuto da sua operação.</p>
+    <div class="grid-form">
+        <div class="form-group">
+            <label for="imoTerreno">Valor de Compra do Terreno (R$):</label>
+            <input type="number" id="imoTerreno" value="500000">
+            
+            <label for="imoEdificacao">Custo de Edificação/Galpão (R$):</label>
+            <input type="number" id="imoEdificacao" value="750000">
+            
+            <label for="imoVidaUtil">Tempo de Amortização (Anos):</label>
+            <input type="number" id="imoVidaUtil" value="20">
+        </div>
+        <div class="form-group">
+            <label for="imoImpostos">Impostos Imobiliários Anuais / IPTU (R$):</label>
+            <input type="number" id="imoImpostos" value="15000">
+            
+            <label for="imoHorasAno">Horas Operacionais por Ano:</label>
+            <input type="number" id="imoHorasAno" value="2400">
+            
+            <button onclick="calcularCustosImobiliarios()" class="btn-primary">Calcular Custo Imobiliário</button>
+        </div>
+    </div>
+    <div id="resultadoImobiliario" class="result-box" style="display:none;" role="region" aria-live="polite"></div>
+</section>
+{% endblock %}

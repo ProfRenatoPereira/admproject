@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Gestão de Ativos - Teradmas{% endblock %}
+
+{% block content %}
+<section class="card" aria-labelledby="tit-maquinas">
+    <h2 id="tit-maquinas">Gestão de Ativos & Minuto-Máquina Metalúrgico</h2>
+    <p>Insira os equipamentos industriais para cálculo automático de depreciação e salvamento permanente no banco de dados.</p>
+    <div class="grid-form">
+        <div class="form-group">
+            <label for="maquinaNome">Nome / Identificação da Máquina:</label>
+            <input type="text" id="maquinaNome" placeholder="Ex: Torno CNC Mazak 01">
+
+            <label for="maquinaPreco">Valor de Aquisição (R$):</label>
+            <input type="number" id="maquinaPreco" value="280000">
+            
+            <label for="maquinaVidaUtil">Vida Útil Estimada (Anos):</label>
+            <input type="number" id="maquinaVidaUtil" value="12">
+        </div>
+        <div class="form-group">
+            <label for="maquinaValorRevenda">Valor Residual de Revenda (R$):</label>
+            <input type="number" id="maquinaValorRevenda" value="50000">
+
+            <label for="maquinaManutencao">Custo de Manutenção Anual (R$):</label>
+            <input type="number" id="maquinaManutencao" value="18000">
+            
+            <label for="maquinaHorasAno">Horas Operacionais por Ano:</label>
+            <input type="number" id="maquinaHorasAno" value="2400">
+            
+            <button onclick="adicionarMaquinaServidor()" class="btn-primary">Salvar e Registrar Ativo</button>
+        </div>
+    </div>
+
+    <table class="data-table" id="tabelaMaquinas" aria-label="Lista de Ativos Cadastrados">
+        <thead>
+            <tr>
+                <th>Equipamento</th>
+                <th>Depreciação Anual</th>
+                <th>Custo Fixo / Ano</th>
+                <th>Custo por Minuto</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <div id="resultadoAtivo" class="result-box" style="display:none;" role="region" aria-live="polite"></div>
+</section>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Retorno aos Acionistas - Teradmas{% endblock %}
+
+{% block content %}
+<section class="card" aria-labelledby="tit-retorno">
+    <h2 id="tit-retorno">Tempo de Retorno do Capital (Payback & ROI)</h2>
+    <p>Simulador financeiro estruturado pela Terceiro Adm para prever a viabilidade do investimento inicial corporativo.</p>
+    <div class="grid-form">
+        <div class="form-group">
+            <label for="retVendasMensais">Estimativa de Peças Vendidas / Mês:</label>
+            <input type="number" id="retVendasMensais" value="500">
+        </div>
+        <div class="form-group">
+            <label for="retDespesasFixas">Outras Despesas Administrativas Fixas / Mês (R$):</label>
+            <input type="number" id="retDespesasFixas" value="8000">
+            <button onclick="calcularTempoRetorno()" class="btn-primary">Analisar Retorno Financeiro</button>
+        </div>
+    </div>
+    <div id="resultadoRetorno" class="result-box" style="display:none;" role="region" aria-live="polite"></div>
+</section>
+{% endblock %}

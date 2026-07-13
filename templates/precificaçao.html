@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Simulador de Preços - Teradmas{% endblock %}
+
+{% block content %}
+<section class="card" aria-labelledby="tit-markup">
+    <h2 id="tit-markup">Simulador de Precificação Customizada por Produto</h2>
+    <p>Aplique as margens de lucro individualizadas escolhendo o canal de distribuição para o cálculo do preço de venda corporativo.</p>
+    <div class="grid-form">
+        <div class="form-group">
+            <label for="custoTotal">Custo Industrial Acumulado do Item (R$):</label>
+            <input type="number" id="custoTotal" value="100" readonly style="background-color: #eee;">
+            
+            <label for="canalPreco">Canal de Distribuição Comercial:</label>
+            <select id="canalPreco" onchange="ajustarMargemPorCanal()">
+                <option value="varejo">Varejo (Margem Padrão)</option>
+                <option value="atacado">Atacado (Volume / Margem Reduzida)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="lucro">Margem de Lucro Desejada para o Item (%):</label>
+            <input type="number" id="lucro" value="25">
+            
+            <label for="impostosInput">Impostos Incidentes na Venda (%):</label>
+            <input type="number" id="impostosInput" value="18">
+            
+            <button onclick="calcularPrecovenda()" class="btn-primary" style="margin-top: 10px;">Aplicar Precificação Comercial</button>
+        </div>
+    </div>
+    <div id="resultado" class="result-box" style="display:none;"></div>
+</section>
+{% endblock %}

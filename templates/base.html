@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ERP Teradmas{% endblock %}</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+    <div class="skip-links"><a href="#main-content">Ir para o conteúdo</a></div>
+
+    <div class="accessibility-bar" role="toolbar">
+        <button onclick="toggleContraste()">🌓 Alto Contraste</button>
+        <button onclick="alterarFonte(1)">A+</button>
+        <button onclick="alterarFonte(-1)">A-</button>
+    </div>
+
+    <header class="navbar-corporate" role="banner">
+        <div class="header-main-row">
+            <div class="logo-container"><img src="../static/images/logo.png" alt="Logo Teradmas" class="brand-logo"></div>
+            <div class="header-text-container">
+                <h1>TERCEIRO ADM ASSOCIADOS</h1>
+                <p>Projetos, Execução, Assessoria, Auditoria e Gerenciamento Operacional e de Custos</p>
+            </div>
+            <button class="menu-toggle" aria-label="Menu" aria-controls="navMenu" id="menuToggle">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+        </div>
+        
+        <nav class="nav-menu-corporate" id="navMenu">
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <button class="dropdown-toggle">1. Estrutura ▾</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/terreno">Instalações Imobiliárias</a></li>
+                        <li><a href="/maquinas">Ativos & Máquinas</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <button class="dropdown-toggle">2. Processos & MOD ▾</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/processos">Roteiro & Tempos</a></li>
+                        <li><a href="/materiais">Matéria-Prima</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <button class="dropdown-toggle">3. Finanças & ROI ▾</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/precificacao">Mark-up Individual</a></li>
+                        <li><a href="/retorno">Retorno Acionistas</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container" id="main-content" tabindex="-1">
+        <!-- O conteúdo específico de cada página entrará aqui -->
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="../static/js/main.js"></script>
+</body>
+</html>

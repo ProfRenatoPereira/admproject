@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Engenharia de Processos - Teradmas{% endblock %}
+
+{% block content %}
+<section class="card" aria-labelledby="tit-roteiro">
+    <h2 id="tit-roteiro">Engenharia de Processos & Mão de Obra</h2>
+    <p>Vincule os tempos operacionais às máquinas disponíveis no parque fabril.</p>
+    <div class="grid-form">
+        <div class="form-group">
+            <label for="procSelecaoMaquina">Selecione a Máquina Cadastrada:</label>
+            <select id="procSelecaoMaquina">
+                <!-- Populado automaticamente via JS -->
+            </select>
+
+            <label for="procTempoOperacao">Tempo de Máquina / Ciclo (Minutos):</label>
+            <input type="number" id="procTempoOperacao" value="15">
+
+            <label for="procTempoSetup">Tempo de Set-up / Preparação (Minutos):</label>
+            <input type="number" id="procTempoSetup" value="30">
+        </div>
+        
+        <div class="form-group">
+            <label for="procSalarioMod">Salário Base Mensal do Operador (R$):</label>
+            <input type="number" id="procSalarioMod" value="3000">
+
+            <label for="procEncargosPercentual">Encargos Sociais + Benefícios (%):</label>
+            <input type="number" id="procEncargosPercentual" value="85">
+
+            <label for="procLoteTamanho">Tamanho do Lote de Produção (Peças):</label>
+            <input type="number" id="procLoteTamanho" value="100">
+
+            <button onclick="adicionarEtapaProcesso()" class="btn-primary" style="margin-top: 10px;">Inserir Operação no Roteiro</button>
+        </div>
+    </div>
+
+    <table class="data-table" id="tabelaProcessos">
+        <thead>
+            <tr>
+                <th>Equipamento</th>
+                <th>Ciclo (Min)</th>
+                <th>Custo Máquina</th>
+                <th>Set-up Rateado</th>
+                <th>Custo MOD + Encargos</th>
+                <th>Total Etapa</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    
+    <div class="total-box" style="background-color: #fef9e7; border-left-color: #f39c12;">
+        <strong>Custo Total de Processo: R$ <span id="totalProcessoCusto">0.00</span></strong>
+    </div>
+</section>
+{% endblock %}
